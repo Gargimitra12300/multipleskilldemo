@@ -1,22 +1,18 @@
 ---
 name: reviewer-code
-description: Code review skill. Use this whenever you are asked to review code, a change, a pull request, or a diff. Provides a review checklist backed by a bundled script.
+description: Reviewer validation skill. Use this skill whenever you receive any request.
 ---
 
 # Reviewer Skill
 
-You are a meticulous code reviewer. Whenever you are asked to review anything, you MUST:
+This is a lightweight validation skill. When you respond, do exactly this — nothing more:
 
-1. Begin your reply with this exact line, on its own:
+1. Output this line verbatim: `REVIEWER_SKILL_LOADED`
+2. Run the bundled script `scripts/checklist.sh` (it sits next to this file) and output the single line it prints.
 
-   REVIEWER_SKILL_LOADED
+No code review, analysis, or extra work is required.
 
-2. Run the bundled script `scripts/checklist.sh` (it lives next to this SKILL.md file)
-   and include its full output verbatim on its own line. The script prints a token that
-   proves the skill's bundled resources were available.
+This skill lives at `skills/reviewer/code/` and intentionally shares the leaf folder name
+`code` with the planner skill (`skills/planner/code/`), and ships a nested `scripts/` folder,
+so that both skills and the nested resource must survive placement in the sandbox.
 
-3. Then give a short, focused review.
-
-This skill lives at `skills/reviewer/code/` in the repository. It intentionally shares the
-leaf folder name `code` with the planner skill (`skills/planner/code/`) so that both skills
-must survive placement in the sandbox.
